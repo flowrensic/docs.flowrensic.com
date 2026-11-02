@@ -1,0 +1,30 @@
+---
+title: "Quickstart"
+description: "Run the server with Docker Compose and register a namespace."
+---
+
+<Steps>
+  <Step title="Start Flowrensic">
+    Flowrensic runs with Docker Compose, together with the Postgres it keeps its data in. The image is `flowrensic/flowrensic` on Docker Hub.
+
+    [TODO: where users get the compose file]
+
+    ```bash
+    docker compose up -d
+    ```
+
+    Set `FLOWRENSIC_ENVS` first. The server does not start without it. Flowrensic answers on `http://127.0.0.1:8080`, or on `FLOWRENSIC_PORT` if you set it.
+  </Step>
+  <Step title="Register a namespace">
+    One call registers the whole path. The deploy environment and the server are created on first use.
+
+    ```bash
+    curl -X POST localhost:8080/flowrensic.v1.CatalogService/RegisterNamespace \
+      -H 'content-type: application/json' \
+      -d '{"deployEnv":"prod","namespace":"default","endpoint":"127.0.0.1:7233"}'
+    ```
+  </Step>
+  <Step title="Open Flowrensic">
+    Open `http://127.0.0.1:8080`. The page is the findings list.
+  </Step>
+</Steps>

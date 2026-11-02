@@ -1,0 +1,54 @@
+---
+title: "Node SDK"
+description: "@flowrensic/node"
+---
+
+```bash
+npm install @flowrensic/node
+```
+
+Use the same version as the `flowrensic/flowrensic` image.
+
+## Replay
+
+```ts
+import { fetchReplaySet, publishVerdicts, readReplaySet } from '@flowrensic/node';
+import { historyFromJSON } from '@temporalio/common/lib/proto-utils.js';
+import { Worker } from '@temporalio/worker';
+
+await fetchReplaySet({
+  baseUrl: 'http://flowrensic:8080',
+  workflowType: 'OrderWorkflow',
+  dir: 'replay-set',
+  deployEnv: 'prod',
+  readKey: process.env.FLOWRENSIC_READ_KEY ?? '',
+});
+
+const set = await readReplaySet('replay-set');
+const histories = await Promise.all(
+  set.histories.map(async (entry) => ({
+    workflowId: entry.run_id,
+    history: historyFromJSON(JSON.parse(await readFile(join('replay-set', entry.file), 'utf8'))),
+  })),
+);
+
+const verdicts = [];
+for await (const result of Worker.runReplayHistories({ workflowsPath }, histories)) {
+  verdicts.push({
+    runId: result.workflowId,
+    workflowType: set.workflow_type,
+    passed: result.error === undefined,
+    error: result.error?.message,
+  });
+}
+
+await publishVerdicts({
+  baseUrl: 'http://flowrensic:8080',
+  codeVersion: process.env.GIT_SHA,
+  verdicts,
+});
+```
+
+## Activity interceptor
+
+[TODO]

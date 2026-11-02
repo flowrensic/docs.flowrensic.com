@@ -1,0 +1,35 @@
+---
+title: "QueryService"
+description: "[TODO]"
+---
+
+| Method | Description |
+| --- | --- |
+| `ActivityStats` | [TODO] |
+| `ListRuns` | [TODO] |
+| `ListFindings` | [TODO] |
+| `ListAlerts` | The current alerts, newest first. |
+| `EngineMetrics` | [TODO] |
+| `UpdateRejections` | [TODO] |
+| `ListReplayHistories` | Picks the set CI replays and answers with every history of it, in one response. |
+| `ListReplayResults` | [TODO] |
+| `ListReplayRequests` | [TODO] |
+| `ListReplaySets` | How many histories the replay set of each workflow type and env holds now. Main port only. |
+| `GetReplaySet` | The replay set of one workflow type in every env now, and its runs in quarantine. |
+| `QuarantineHistory` | Puts a run in quarantine, so replay sets leave it out. A run already there is left as it was. |
+| `ReleaseHistory` | Takes a run out of quarantine. |
+| `ListWorkflowTypes` | [TODO] |
+| `GetWorkflowType` | [TODO] |
+| `ListEnvInstances` | [TODO] |
+| `EnvInstanceMetrics` | [TODO] |
+| `WorkerMetrics` | [TODO] |
+| `CostBreakdown` | Counts the billable events of one namespace over two windows of the configured length, by workflow type, task queue and engine event type. |
+| `GetDeployment` | [TODO] |
+| `DeployAttemptCounts` | Keeps production traffic, the cost of a rollout and the deploy's own test phase apart, for one environment. |
+| `ListThresholds` | Every threshold a finding is judged against, with the env variable that sets it, its default and the value in force. |
+| `GetFinding` | One stored finding by its id, not found when none is. |
+| `SetFindingStatus` | Archives a finding or makes it active again. A status the finding already has changes nothing. |
+| `GetServerConfig` | The config the server was started with, secrets left out. |
+| `GetStoredData` | How much of each kind of data is stored, the time range it covers and when an item of it last arrived. |
+
+[TODO: request and response fields per method]

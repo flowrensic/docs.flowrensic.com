@@ -1,0 +1,79 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Flowrensic",
+  "description": "Forensics for durable execution, Temporal first.",
+  "colors": {
+    "primary": "#2563EB",
+    "light": "#2563EB",
+    "dark": "#111827"
+  },
+  "appearance": {
+    "default": "light",
+    "strict": true
+  },
+  "background": {
+    "color": {
+      "light": "#FFFFFF"
+    }
+  },
+  "fonts": {
+    "heading": { "family": "Inter", "weight": 800 },
+    "body": { "family": "Inter" }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://flowrensic.com"
+  },
+  "favicon": "/favicon.svg",
+  "navbar": {
+    "links": [
+      { "label": "flowrensic.com", "href": "https://flowrensic.com" }
+    ]
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": ["introduction", "quickstart"]
+          },
+          {
+            "group": "Concepts",
+            "pages": ["concepts/catalog", "concepts/replay"]
+          },
+          {
+            "group": "Guides",
+            "pages": ["guides/replay-in-ci"]
+          },
+          {
+            "group": "Clients",
+            "pages": ["sdk/node", "cli/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "groups": [
+          {
+            "group": "API reference",
+            "pages": [
+              "api-reference/overview",
+              "api-reference/catalog-service",
+              "api-reference/ingest-service",
+              "api-reference/query-service"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "website": "https://flowrensic.com"
+    }
+  }
+}

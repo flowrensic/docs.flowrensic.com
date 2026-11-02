@@ -1,0 +1,10 @@
+---
+title: "Replay"
+description: "Replay recorded histories against new code."
+---
+
+Histories checked into a repo go stale on the next deploy, and nobody can say which are still safe to delete. Flowrensic keeps what the server recorded and picks a replay set for you: recent histories and versions still running somewhere.
+
+The replay itself stays yours. You call Temporal's replayer directly, in your suite, with your own bundler options. Verdicts go back against the run and the code version, so a break points at the change that caused it.
+
+[TODO: how the replay set is chosen]

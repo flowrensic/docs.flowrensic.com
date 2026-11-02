@@ -1,0 +1,14 @@
+---
+title: "Catalog"
+description: "Deploy environments, servers and namespaces."
+---
+
+The catalog is three levels:
+
+- A **deploy environment** holds servers.
+- A **server** holds namespaces.
+- A **namespace** is what a worker is pointed at.
+
+Metrics belong to the server, so one scrape serves every namespace on it. Temporal is the only engine supported, so nothing in the catalog names one.
+
+[TODO: diagram of the three levels]

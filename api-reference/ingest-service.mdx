@@ -1,0 +1,22 @@
+---
+title: "IngestService"
+description: "The push path. Workers and collectors inside your network send here."
+---
+
+| Method | Description |
+| --- | --- |
+| `IngestActivityEvents` | Takes a batch from a worker interceptor. A bad event rejects the whole batch. A call with no events carries the reports of the worker's buffer. |
+| `IngestHistory` | [TODO] |
+| `IngestReplayResults` | Takes the verdicts a pipeline produced. The replay ran in your SDK against the checkout under test. |
+| `EnvInstanceHandshake` | The one call a worker makes at startup. The answer says whether it collects the engine's metrics and how often. |
+| `IngestEnvInstanceMetrics` | [TODO] |
+| `IngestWorkerMetrics` | Takes what a worker's own metrics endpoint exported. |
+| `IngestEngineHistory` | Takes a history a worker read over gRPC, for an engine the backend cannot reach itself. |
+| `EnvInstanceHandover` | [TODO] |
+| `WorkerBeat` | Says a worker is still up. |
+| `OldWorkers` | How many workers of an env are up with a version that is not the new one, so a pipeline can wait for 0 before its tests. |
+| `IngestDeployStage` | Takes one stage write from the thing doing the deploy. |
+| `IngestClientCalls` | Takes the queries a Temporal client made that threw, from the client interceptor. |
+| `IngestQueryCounts` | [TODO] |
+
+[TODO: request and response fields per method]
