@@ -5,6 +5,6 @@ Docs for Flowrensic, built with [Mintlify](https://mintlify.com). Config is `doc
     npm i -g mint 
         OR
     npm i -g mint --registry=https://registry.npmjs.org/
-    mint dev        # http://localhost:3000
+    mint dev --port 3001        # http://localhost:3001
 
 [TODO: deploy, once the repo is connected in the Mintlify dashboard]
